@@ -1,6 +1,7 @@
 from os.path import isfile, join
 import os
 from pathlib import Path
+import pymupdf
 
 def courseList():
     ROOT_DIR = os.path.dirname(os.path.abspath("main.py"))
@@ -20,4 +21,7 @@ def courseList():
 def isCourseArticulated(file):
     ROOT_DIR = os.path.dirname(os.path.abspath("main.py"))
     output_path = os.path.join(ROOT_DIR, 'articulation_downloader', 'outputs')
+    print(output_path)
+    
+
     
