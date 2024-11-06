@@ -18,6 +18,13 @@ def grabPDFs():
         colleges = [] # list of all college id's that have an agreement with the target college
         for entry in range(len(agreement_data)):
             colleges.append(agreement_data[entry]['institutionParentId'])
+        
+        for college_id in colleges:
+            major_url = urllib.request.urlopen(
+                "https://assist.org/api/agreements?receivingInstitutionId=" + str(id) + "&sendingInstitutionId=" + str(
+                    college_id) + "&academicYearId=72&categoryCode=major"
+            )
+            major_data = json.load(major_url)
 
     except HTTPError as e:
         content = e.read()
