@@ -1,5 +1,7 @@
 import urllib, json
 from urllib.error import HTTPError
+import requests
+import os
 
 def grabPDFs():
     institutions_url = urllib.request.urlopen("https://assist.org/api/institutions")
@@ -25,6 +27,24 @@ def grabPDFs():
                     college_id) + "&academicYearId=72&categoryCode=major"
             )
             major_data = json.load(major_url)
+
+            key = None
+
+            for major_entry in major_data['reports']:
+                curr_major = major_entry['label']
+                if curr_major == major:
+                    key = major_entry['key']
+                    download_url = 'https://assist.org/api/artifacts/' + str(key)
+                    response = requests.get(download_url, allow_redirects=True)
+                    if response.status_code == 200:
+                        ROOT_DIR = os.path.dirname(os.path.abspath("main.py"))
+                        output_path = os.path.join(ROOT_DIR, 'APIDirector', 'outputs')
+                        pdf = open(output_path + "\pdf" + str(key) + ".pdf", 'wb')
+                        pdf.write(response.content)
+                        pdf.close()
+                    break
+
+
 
     except HTTPError as e:
         content = e.read()
