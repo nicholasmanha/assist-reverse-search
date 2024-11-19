@@ -3,13 +3,15 @@ import os
 from pathlib import Path
 import pymupdf
 
+
 def courseList():
     ROOT_DIR = os.path.dirname(os.path.abspath("main.py"))
     output_path = os.path.join(ROOT_DIR, 'articulation_downloader', 'outputs')
 
     college_list = []
     # all files in directory
-    files = [f for f in os.listdir(output_path) if isfile(join(output_path, f))]
+    files = [f for f in os.listdir(
+        output_path) if isfile(join(output_path, f))]
 
     for file in files:
         col = isCourseArticulated(file)
@@ -18,10 +20,15 @@ def courseList():
 
     return college_list
 
+
 def isCourseArticulated(file):
     ROOT_DIR = os.path.dirname(os.path.abspath("main.py"))
     output_path = os.path.join(ROOT_DIR, 'articulation_downloader', 'outputs')
-    print(output_path)
-    
-
+    doc = pymupdf.open('articulation_downloader/outputs/pdf25564837.pdf')  # open a document
+    out = open("output.txt", "wb")  # create a text output
+    for page in doc:  # iterate the document pages
+        text = page.get_text().encode("utf8")  # get plain text (is in UTF-8)
+        print(text)
+        out.write(bytes((12,)))  # write page delimiter (form feed 0x0C)
+    out.close()
     
