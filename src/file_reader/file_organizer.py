@@ -24,7 +24,7 @@ def courseList():
 def isCourseArticulated(file):
     ROOT_DIR = os.path.dirname(os.path.abspath("main.py"))
     output_path = os.path.join(ROOT_DIR, 'articulation_downloader', 'outputs')
-    doc = pymupdf.open('articulation_downloader/outputs/pdf25564837.pdf')  # open a document
+    doc = pymupdf.open("articulation_downloader/outputs/" + file)  # open a document
     out = open("output.txt", "wb")  # create a text output
     search_term = "MATH​ 54"
     for page in doc:  # iterate the document pages
