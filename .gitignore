@@ -2,7 +2,6 @@ pymupdf-venv/
 venv/
 # Byte-compiled / optimized / DLL files
 __pycache__/
-src/articulation_downloader/__pycache__/
 *.py[cod]
 
 # C extensions
