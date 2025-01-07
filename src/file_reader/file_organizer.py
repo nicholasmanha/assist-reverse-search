@@ -26,9 +26,14 @@ def isCourseArticulated(file):
     output_path = os.path.join(ROOT_DIR, 'articulation_downloader', 'outputs')
     doc = pymupdf.open('articulation_downloader/outputs/pdf25564837.pdf')  # open a document
     out = open("output.txt", "wb")  # create a text output
+    search_term = "MATH​ 54"
     for page in doc:  # iterate the document pages
-        text = page.get_text().encode("utf8")  # get plain text (is in UTF-8)
-        out.write(text)
+        
+        text = page.get_text()  
+        textOutput = page.get_text().encode("utf8") # get plain text (is in UTF-8) (bytes)
+        search_position = text.find(search_term)
+        print(search_position)
+        out.write(textOutput)
         out.write(bytes((12,)))  # write page delimiter (form feed 0x0C)
     out.close()
     
