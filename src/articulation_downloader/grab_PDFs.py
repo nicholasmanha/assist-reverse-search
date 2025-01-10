@@ -38,7 +38,7 @@ def grabPDFs():
                     response = requests.get(download_url, allow_redirects=True)
                     if response.status_code == 200:
                         ROOT_DIR = os.path.dirname(os.path.abspath("main.py"))
-                        output_path = os.path.join(ROOT_DIR, 'APIDirector', 'outputs')
+                        output_path = os.path.join(ROOT_DIR, 'articulation_downloader', 'outputs')
                         pdf = open(output_path + "\pdf" + str(key) + ".pdf", 'wb')
                         pdf.write(response.content)
                         pdf.close()
