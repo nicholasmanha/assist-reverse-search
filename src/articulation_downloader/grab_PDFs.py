@@ -3,15 +3,13 @@ from urllib.error import HTTPError
 import requests
 import os
 
-def grabPDFs():
+def grabPDFs(university, major):
     institutions_url = urllib.request.urlopen("https://assist.org/api/institutions")
     institutions = json.load(institutions_url)
-    target_college = "California State University, Chico"
-    major = "Business Administration B.S. - Management Option"
     id = None
     for entry in range(len(institutions)):
         curr_college = institutions[entry]['names'][0]['name']
-        if curr_college == target_college:
+        if curr_college == university:
             id = institutions[entry]['id']
             break
     try:

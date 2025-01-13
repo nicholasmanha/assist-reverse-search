@@ -5,13 +5,13 @@ import click
 @click.command()
 @click.option('--university', prompt='Univerity',
               help='The University you wish to attend.')
-@click.option('--degree', prompt='Degree',
-              help='The degree you wish to look at.')
+@click.option('--major', prompt='Major',
+              help='The major you wish to look at.')
 @click.option('--course', prompt='Course',
               help='The course you wish to take.')
 
-def find_colleges(university, degree, course):
-  grabPDFs(university, degree)
+def find_colleges(university, major, course):
+  grabPDFs(university, major)
   lis = courseList(course)
   print(lis)
   print(len(lis))
