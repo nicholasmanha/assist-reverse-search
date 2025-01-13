@@ -38,8 +38,8 @@ def isCourseArticulated(file):
         out.write(bytes((12,)))  # write page delimiter (form feed 0x0C)
         if search_position != -1: 
             arrow_index = text.find("←", search_position + len(search_term))
-            if "No Course Articulated" not in text[arrow_index:arrow_index + 30] or "No Comparable Course" not in text[arrow_index:arrow_index + 30]:
-                
+            
+            if "No Course Articulated" not in text[arrow_index:arrow_index + 30] and "No Comparable Course" not in text[arrow_index:arrow_index + 30]:
                 doc.close()
                 return college
             else:
