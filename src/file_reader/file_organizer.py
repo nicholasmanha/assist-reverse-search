@@ -27,15 +27,16 @@ def isCourseArticulated(file):
     doc = pymupdf.open("articulation_downloader/outputs/" + file)  # open a document
     out = open("output.txt", "wb")  # create a text output
     search_term = "MATH​ 54"
-    for page in doc:  # iterate the document pages
-        
+    for page_number in range(len(doc)):  # iterate the document pages
+        page = doc.load_page(page_number)
         text = page.get_text()  
         textOutput = page.get_text().encode("utf8") # get plain text (is in UTF-8) (bytes)
         search_position = text.find(search_term)
         if(search_position != -1): 
             arrow_index = text.find("←", search_position + len(search_term))
-            if "No Course Articulated" in text[arrow_index:arrow_index + 30]:
-                print("no course articualted")
+            if "No Course Articulated" not in text[arrow_index:arrow_index + 30]:
+                college = text[text.find('From:') + 6:text.find('2', text.find('From:')) - 1]
+                return college
         out.write(textOutput)
         out.write(bytes((12,)))  # write page delimiter (form feed 0x0C)
     out.close()
