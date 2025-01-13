@@ -24,22 +24,29 @@ def courseList():
 def isCourseArticulated(file):
     ROOT_DIR = os.path.dirname(os.path.abspath("main.py"))
     doc = pymupdf.open("articulation_downloader/outputs/" + file)  # open a document
+    out = open("output.txt", "wb")  # create a text output
     search_term = "MATH​ 107"
     for page_number in range(len(doc)):  # iterate the document pages via page number
         page = doc.load_page(page_number)
         college = ""
-        if page_number == 1: # get the name of the college via the first page
+        text = page.get_text() 
+        if page_number == 0: # get the name of the college via the first page
             college = text[text.find('From:') + 6:text.find('2', text.find('From:')) - 1] # format: "From: [college] 2021-2022"
-        text = page.get_text()  
+        textOutput = page.get_text().encode("utf8") # get plain text (is in UTF-8) (bytes)
         search_position = text.find(search_term)
+        out.write(textOutput)
+        out.write(bytes((12,)))  # write page delimiter (form feed 0x0C)
         if search_position != -1: 
             arrow_index = text.find("←", search_position + len(search_term))
-            if "No Course Articulated" not in text[arrow_index:arrow_index + 30] or "No Comparable Course" not in text[arrow_index:arrow_index + 30] :
+            if "No Course Articulated" not in text[arrow_index:arrow_index + 30] or "No Comparable Course" not in text[arrow_index:arrow_index + 30]:
+                
                 doc.close()
                 return college
             else:
                 doc.close()
                 os.remove("articulation_downloader/outputs/" + file)
                 return
+        
+    out.close()
             
     
