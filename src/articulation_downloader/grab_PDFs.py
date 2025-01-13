@@ -4,6 +4,15 @@ import requests
 import os
 
 def grabPDFs(university, major):
+    ROOT_DIR = os.path.dirname(os.path.abspath("main.py"))
+    output_path = os.path.join(ROOT_DIR, 'articulation_downloader', 'outputs')
+    
+    # delete any files in the outputs directory
+    for filename in os.listdir(output_path):
+        file_path = os.path.join(output_path, filename)
+        if os.path.isfile(file_path):  
+            os.remove(file_path)
+            
     institutions_url = urllib.request.urlopen("https://assist.org/api/institutions")
     institutions = json.load(institutions_url)
     id = None
@@ -35,9 +44,6 @@ def grabPDFs(university, major):
                     download_url = 'https://assist.org/api/artifacts/' + str(key)
                     response = requests.get(download_url, allow_redirects=True)
                     if response.status_code == 200:
-                        ROOT_DIR = os.path.dirname(os.path.abspath("main.py"))
-                        
-                        output_path = os.path.join(ROOT_DIR, 'articulation_downloader', 'outputs')
                         if not os.path.exists(output_path):
                             os.makedirs(output_path)
                         pdf = open(output_path + "\pdf" + str(key) + ".pdf", 'wb')
