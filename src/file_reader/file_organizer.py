@@ -25,13 +25,14 @@ def isCourseArticulated(file, course):
     ROOT_DIR = os.path.dirname(os.path.abspath("main.py"))
     doc = pymupdf.open("articulation_downloader/outputs/" + file)  # open a document
     out = open("output.txt", "wb")  # create a text output
-    search_term = "MATH​ 54"
+    college = ""
     for page_number in range(len(doc)):  # iterate the document pages via page number
         page = doc.load_page(page_number)
-        college = ""
+        
         text = page.get_text() 
-        if page_number == 0: # get the name of the college via the first page
+        if text.find('From:') != -1:
             college = text[text.find('From:') + 6:text.find('2', text.find('From:')) - 1] # format: "From: [college] 2021-2022"
+        
         textOutput = page.get_text().encode("utf8") # get plain text (is in UTF-8) (bytes)
         search_position = text.find(course)
         out.write(textOutput)
@@ -43,6 +44,7 @@ def isCourseArticulated(file, course):
                 "No Comparable Course" not in articulated_course and \
                     "Course(s) Denied" not in articulated_course:
                 doc.close()
+                print(college)
                 return college
             else:
                 doc.close()
