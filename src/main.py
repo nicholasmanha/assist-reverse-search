@@ -11,10 +11,12 @@ import click
               help='The course you wish to take.')
 
 def find_colleges(university, major, course):
+  print("Downloading Agreements...")
   grabPDFs(university, major)
+  print("Finding Applicable colleges...")
   lis = courseList(course)
   print(lis)
-  print(len(lis))
+  print("There were " + str(len(lis)) + " colleges with this course.")
         
 if __name__ == '__main__':
     find_colleges()
