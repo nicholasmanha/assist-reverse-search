@@ -1,41 +1,34 @@
 ACCT​ 201 - ​Introduction to Financial Accounting (3.00)
 ←
-ACCTG​ 001 - ​Introductory Accounting I (5.00)
+ACCT​ C101 - ​Financial Accounting (4.00)
 ACCT​ 202 - ​Introduction to Managerial Accounting (3.00)
 ←
-ACCTG​ 002 - ​Introductory Accounting II (5.00)
+ACCT​ C102 - ​Managerial Accounting (4.00)
 BLAW​ 203 - ​Introduction to Business Law (3.00)
 ←
-BUS​ 005 - ​Business Law I (3.00)
-Same-As: LAW​ 001
---- Or ---
-LAW​ 001 - ​Business Law I (3.00)
-Same-As: BUS​ 005
+BUS​ C110 - ​Business Law/Legal Environment of Business (3.00)
 ECON​ 102 - ​Principles of Macroeconomic Analysis (3.00)
 ←
-ECON​ 002 - ​Principles of Economics II (3.00)
+ECON​ C175 - ​Principles of Macroeconomics (3.00)
 ECON​ 103 - ​Principles of Microeconomic Analysis (3.00)
 ←
-ECON​ 001 - ​Principles of Economics I (3.00)
+ECON​ C170 - ​Principles of Microeconomics (3.00)
 MATH​ 108 - ​Statistics of Business and Economics (3.00)
 ←
-MATH​ 227 - ​Statistics (4.00)
-​Course is an approved substitute for this major only
---- Or ---
-STAT​ 101 - ​Statistics For The Social Sciences (4.00)
+MATH​ C160 - ​Introduction to Statistics (4.00)
 ​Course is an approved substitute for this major only
 MATH​ 107 - ​Finite Mathematics for Business (3.00)
 ​Highly recommended
 ←
-No Comparable Course
+MATH​ C150 - ​Finite Mathematics with Applications (4.00)
 MATH​ 109 - ​Survey of Calculus (4.00)
 ​Acceptable substitute
 ←
-MATH​ 238 - ​Calculus for Business and Social Sciences I (5.00)
+MATH​ C140 - ​Business Calculus (4.00)
 MATH​ 120 - ​Analytic Geometry and Calculus (4.00)
 ​Acceptable substitute
 ←
-MATH​ 261 - ​Calculus I (5.00)
+MATH​ C180 - ​Calculus 1 (5.00)
 Articulation Agreement by Major
 Effective during the 2021-2022 Academic Year
 Business Administration B.S. - Management Option
@@ -62,6 +55,6 @@ Select 1 Course(s) from the following
 END OF AGREEMENT
 To: California State University, Chico
 2021-2022 General Catalog, Semester
-From: Los Angeles Valley College
+From: Coastline Community College
 2021-2022 General Catalog, Semester
 
