@@ -35,7 +35,11 @@ def isCourseArticulated(file):
         if search_position != -1: 
             arrow_index = text.find("←", search_position + len(search_term))
             if "No Course Articulated" not in text[arrow_index:arrow_index + 30]:
-                
+                doc.close()
                 return college
+            else:
+                doc.close()
+                os.remove("articulation_downloader/outputs/" + file)
+                return
             
     
