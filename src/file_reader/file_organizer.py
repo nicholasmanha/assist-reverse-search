@@ -39,7 +39,7 @@ def isCourseArticulated(file):
         if search_position != -1: 
             arrow_index = text.find("←", search_position + len(search_term))
             
-            if "No Course Articulated" not in text[arrow_index:arrow_index + 30] and "No Comparable Course" not in text[arrow_index:arrow_index + 30]:
+            if "No Course Articulated" not in text[arrow_index:arrow_index + 30] and "No Comparable Course" not in text[arrow_index:arrow_index + 30] and "Course(s) Denied" not in text[arrow_index:arrow_index + 30]:
                 doc.close()
                 return college
             else:
