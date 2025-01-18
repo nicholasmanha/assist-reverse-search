@@ -1,6 +1,7 @@
 from file_reader.file_organizer import courseList
 from articulation_downloader.grab_PDFs import grabPDFs
 import click
+import csv
 
 @click.command()
 @click.option('--university', prompt='Univerity',
@@ -16,6 +17,14 @@ def find_colleges(university, major, course):
   print("Finding Applicable colleges...")
   lis = courseList(course)
   print(lis)
+
+
+  with open("Colleges.csv", mode="w", newline="") as file:
+    writer = csv.writer(file)
+    
+    for string in lis:
+        writer.writerow([string])
+
   print("There were " + str(len(lis)) + " colleges with this course.")
         
 if __name__ == '__main__':
