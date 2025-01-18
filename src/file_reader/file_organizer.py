@@ -22,10 +22,11 @@ def courseList(course):
 
 
 def isCourseArticulated(file, course):
+    course = course.replace("​", "") # remove unrendered character
     doc = pymupdf.open("articulation_downloader/outputs/" + file)  # open the agreement
     college = ""
     for page in doc:  # iterate through the document pages
-        text = page.get_text() 
+        text = page.get_text().replace("​", "") # remove unrendered character
         if text.find('From:') != -1: # if the page doesn't have "From:", then the college title isn't on that page
             college = text[text.find('From:') + 6:text.find('2', text.find('From:')) - 1] # format: "From: [college] 2021-2022"
         search_position = text.find(course)
