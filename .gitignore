@@ -58,3 +58,4 @@ docs/_build/
 src/articulation_downloader/outputs/*
 !src/articulation_downloader/outputs/sheets/*
 !src/articulation_downloader/outputs/sheets/
+src/articulation_downloader/outputs/sheets/Colleges.csv

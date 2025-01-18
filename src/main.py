@@ -19,7 +19,7 @@ def find_colleges(university, major, course):
   print(lis)
 
 
-  with open("Colleges.csv", mode="w", newline="") as file:
+  with open("articulation_downloader/outputs/sheets/Colleges.csv", mode="w", newline="") as file:
     writer = csv.writer(file)
     
     for string in lis:
