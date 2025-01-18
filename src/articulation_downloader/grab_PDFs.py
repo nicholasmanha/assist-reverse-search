@@ -6,6 +6,10 @@ import os
 def grabPDFs(university, major):
     ROOT_DIR = os.path.dirname(os.path.abspath("main.py"))
     output_path = os.path.join(ROOT_DIR, 'articulation_downloader', 'outputs')
+    if not os.path.exists(output_path):
+        os.makedirs(output_path)
+        sheets_path = os.path.join(ROOT_DIR, 'articulation_downloader', 'outputs', 'sheets')
+        os.makedirs(sheets_path)
     
     # delete any files in the outputs directory
     for filename in os.listdir(output_path):
@@ -44,8 +48,6 @@ def grabPDFs(university, major):
                     download_url = 'https://assist.org/api/artifacts/' + str(key)
                     response = requests.get(download_url, allow_redirects=True)
                     if response.status_code == 200:
-                        if not os.path.exists(output_path):
-                            os.makedirs(output_path)
                         pdf = open(output_path + "\pdf" + str(key) + ".pdf", 'wb')
                         pdf.write(response.content)
                         pdf.close()

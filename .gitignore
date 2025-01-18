@@ -1,3 +1,6 @@
+# Project specific
+output.txt
+
 pymupdf-venv/
 venv/
 # Byte-compiled / optimized / DLL files
@@ -53,3 +56,6 @@ docs/_build/
 
 # Output contents
 src/articulation_downloader/outputs/*
+!src/articulation_downloader/outputs/sheets/*
+!src/articulation_downloader/outputs/sheets/
+src/articulation_downloader/outputs/sheets/Colleges.csv
