@@ -15,12 +15,12 @@ In community college, I often needed transfer courses that were not available lo
 
 <!-- GETTING STARTED -->
 ## How to use
-Link to Assist: https://assist.org/
+Link to Assist: https://assist.org/  
 Here is a basic command example
 ```bash
 python main.py --university="University of California, Berkeley" --major="Computer Science, Lower Division B.A." --course="MATH 54"
 ```
-Each argument needs to be copied from the assist website. The above example was from 2021-2022. 
+Each argument needs to be copied from the assist website. The above example was from 2021-2022 academic year on assist. 
 ## Prerequisites
 requests,
 PyMuPDF,
