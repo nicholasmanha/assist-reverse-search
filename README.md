@@ -20,7 +20,8 @@ Here is a basic command example
 ```bash
 python main.py --university="University of California, Berkeley" --major="Computer Science, Lower Division B.A." --course="MATH 54"
 ```
-Each argument needs to be copied from the assist website. The above example was from 2021-2022 academic year on assist. 
+Each argument needs to be copied from the assist website. The above example was from 2021-2022 academic year on assist.   
+PDFs of the agreements are downloaded to the "outputs" folder in the "articulation_downloader" folder. A CSV file is put into the "sheets" folder within the "outputs" folder. 
 ## Prerequisites
 requests,
 PyMuPDF,
